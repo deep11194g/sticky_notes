@@ -1,0 +1,23 @@
+<h2>Notes</h2>
+
+
+<!-- Notes Display List-->
+{% if latest_question_list %}
+
+    <ul>
+        {% for note in notes.all %}
+            <li>
+                {{ note.text }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+<!-- Notes Add Form-->
+<form method="POST" action="">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
