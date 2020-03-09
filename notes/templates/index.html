@@ -1,9 +1,15 @@
-<h2>Notes</h2>
+<link href="http://codepen.io/edbond88/pen/CcgvA.css" media="screen" rel="stylesheet" type="text/css">
+<style>
+    body {
+        background: rgba(222, 222, 222, 1);
+        margin: 20px;
+    }
+</style>
 
+<h1>Django Note Taking App</h1>
 
 <!-- Notes Display List-->
-{% if latest_question_list %}
-
+{% if notes %}
     <ul>
         {% for note in notes.all %}
             <li>
@@ -17,7 +23,8 @@
 
 
 <!-- Notes Add Form-->
-<form method="POST" action="">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">
+<form action="/notes/" method="POST"> {% csrf_token %}
+    <label for="new_text">Input Text (New Note): </label>
+    <input id="new_text" type="text" name="new_text" value="{{ text }}">
+    <input type="submit" value="OK">
 </form>
